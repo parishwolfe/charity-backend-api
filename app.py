@@ -91,7 +91,7 @@ def check_auth(auth_header):
 def check_auth_db(username, password):
     response = users.query.filter_by(name=username).filter_by(pwd=password).first()
     if response == None:
-        return False
+        return False, None
     else:
         return True, response.cust
 
